@@ -31,7 +31,6 @@ int	handle_input(int keysym, t_mlx_data *data)
     return (0);
 }
 
-
 int	main(void)
 {
     t_mlx_data	data;
@@ -39,14 +38,6 @@ int	main(void)
     data.mlx_ptr = mlx_init();
     data.win_ptr = mlx_new_window(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "My first window!");
 
-    /*
-     * HOOKS
-     *  "Hooking into events" (react to events)
-     * When i press a key, handle_input() is triggered
-     * 💡 Every event is linked to its own prototype handler 💡
-    */
     mlx_key_hook(data.win_ptr, handle_input, &data);
-
-    // Leave the control to the EVENT LOOP
     mlx_loop(data.mlx_ptr);
 }
