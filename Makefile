@@ -1,4 +1,4 @@
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra #-Werror
 NAME = game
 SRCS = $(wildcard srcs/*.c)
 OBJ = $(SRCS:.c=.o)
