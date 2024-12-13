@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dfs.c                                              :+:      :+:    :+:   */
+/*   dfs_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/12 18:06:37 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/13 09:54:16 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/so_long.h"
+#include "../incs/so_long_bonus.h"
 
 static void	dfs(t_map map, int y, int x, char **visited)
 {
 	if (x < 0 || x >= map.colums || y < 0 || y >= map.rows
-		|| map.map[y][x] == '1' || visited[y][x] == 'f')
+		|| map.map[y][x] == '1' || visited[y][x] == 'f' || visited[y][x] == 'X')
 		return ;
 	visited[y][x] = 'f';
 	dfs(map, y + 1, x, visited);

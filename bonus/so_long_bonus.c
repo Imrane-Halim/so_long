@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/12 11:00:03 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/13 09:59:56 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/so_long.h"
+#include "../incs/so_long_bonus.h"
 
 void	check_win(t_data *data)
 {
-	if (data->coin_collected == data->coin_count)
+	if (data->p_x == data->map.exit_x && data->p_y == data->map.exit_y)
 	{
-		ft_putstr_fd("\n----->you won!\n", 1);
+		if (data->coin_collected == data->coin_count)
+		{
+			ft_putstr_fd("\n----->you won!\n", 1);
+			close_game(data);
+		}
+		ft_putstr_fd("\nYou have to collect all the coins first\n", 1);
+	}
+	if (data->map.map[data->p_y][data->p_x] == 'X')
+	{
+		ft_putstr_fd("\n----->Lost! You touched an enemy patrol!\n", 1);
 		close_game(data);
 	}
-	ft_putstr_fd("\nYou have to collect all the coins first\n", 1);
 }
 
 void	run_game(t_data data)

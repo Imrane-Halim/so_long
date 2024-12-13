@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_render_utils.c                                :+:      :+:    :+:   */
+/*   game_render_utils_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/12 10:13:23 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/13 09:55:01 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/so_long.h"
+#include "../incs/so_long_bonus.h"
 
 void	init_window(t_data *data)
 {
@@ -55,6 +55,8 @@ void	draw_tail(char taile, t_data *data, int x, int y)
 		data->map.exit_y = y / 64;
 		mlx_put_image_to_window(data->mlx, data->win, data->images.exit, x, y);
 	}
+	else if (taile == 'X')
+		mlx_put_image_to_window(data->mlx, data->win, data->images.enemy, x, y);
 }
 
 void	draw_tails(t_data *data)
@@ -94,4 +96,5 @@ void	init_imgs(t_data *data)
 	data->images.player = create_img(data, "textures_xpm/player.xpm");
 	data->images.grass = create_img(data, "textures_xpm/grass.xpm");
 	data->images.exit = create_img(data, "textures_xpm/exit.xpm");
+	data->images.enemy = create_img(data, "textures_xpm/enemy.xpm");
 }

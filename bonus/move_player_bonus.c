@@ -6,11 +6,11 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/12 18:39:51 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:08:44 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/so_long.h"
+#include "../incs/so_long_bonus.h"
 
 void	move_right(t_data *data)
 {
@@ -82,7 +82,7 @@ void	move_down(t_data *data)
 
 int	handl_input(int key, t_data *data)
 {
-	char *count;
+	char	*count;
 
 	if (key == ESC_KEY)
 		close_game(data);
@@ -94,8 +94,7 @@ int	handl_input(int key, t_data *data)
 		move_up(data);
 	else if (key == DOWN_KEY || key == S_KEY)
 		move_down(data);
-	if (data->p_x == data->map.exit_x && data->p_y == data->map.exit_y)
-		check_win(data);
+	check_win(data);
 	if (data->p_x != data->map.exit_x || data->p_y != data->map.exit_y)
 		mlx_put_image_to_window(data->mlx, data->win, data->images.exit,
 			data->map.exit_x * 64, data->map.exit_y * 64);

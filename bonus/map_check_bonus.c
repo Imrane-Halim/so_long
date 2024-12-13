@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_check.c                                        :+:      :+:    :+:   */
+/*   map_check_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/12 10:39:25 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:09:07 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/so_long.h"
+#include "../incs/so_long_bonus.h"
 
 static void	check_chars(t_map map)
 {
@@ -26,7 +26,8 @@ static void	check_chars(t_map map)
 		while (map.map[y][x])
 		{
 			c = map.map[y][x];
-			if (c != '0' && c != '1' && c != 'C' && c != 'P' && c != 'E')
+			if (c != '0' && c != '1' && c != 'C'
+				&& c != 'P' && c != 'E' && c != 'X')
 			{
 				free_map(map);
 				error("Error: Invalid map, invalid char exists\n");
