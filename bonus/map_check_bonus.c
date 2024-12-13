@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/13 10:09:07 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/13 17:42:55 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static void	check_walls(t_map map)
 
 static void	check_flags(t_map map)
 {
-	int	coin;
+	static int	coin;
 	int	player;
 	int	exit;
 	int	x;

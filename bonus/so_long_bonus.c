@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/13 15:46:09 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/13 17:52:04 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	check_win(t_data *data)
 			ft_putstr_fd("\n----->you won!\n", 1);
 			close_game(data);
 		}
-		ft_putstr_fd("\nYou have to collect all the coins first\n", 1);
+		mlx_string_put(data->mlx, data->win, 70, 32, 0xffffffff, "You have to collect all the coins first");
 	}
 	if (data->map.map[data->p_y][data->p_x] == 'X')
 	{
