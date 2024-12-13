@@ -27,7 +27,7 @@ bonus: $(BOBJ)
 
 clean:
 	$(MAKE) -C ./libft/ clean --silent
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(BOBJ)
 
 fclean: clean
 	$(MAKE) -C ./libft/ fclean --silent
@@ -36,4 +36,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-.SECONDARY: $(OBJ)
+.SECONDARY: $(OBJ) $(BOBJ)
