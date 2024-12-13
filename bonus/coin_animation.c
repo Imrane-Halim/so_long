@@ -33,11 +33,11 @@ void put_all_coins(t_data *data)
 int animate_coins(t_data *data)
 {
 	data->coin.timer++;
-	if (data->coin.timer >= 1000)
+	if (data->coin.timer >= 5500)
 	{
+		put_all_coins(data);
 		data->coin.current_frame = (data->coin.current_frame + 1) % 6;
 		data->coin.timer = 0;
 	}
-	put_all_coins(data);
 	return 0;
 }
