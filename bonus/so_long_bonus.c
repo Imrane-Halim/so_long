@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 09:31:37 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 12:22:30 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,27 @@ void	check_win(t_data *data)
 	}
 }
 
+int 	animate(t_data *data)
+{
+	animate_coins(data);
+	animate_player(data);
+	return (0);	
+}
+
 void	run_game(t_data data)
 {
 	init_window(&data);
-	printf("dfdlfjlsdjflsdf\n");
 	init_imgs(&data);
-	init_frams(&data);
+	data.coin.current_frame = 0;
+	data.coin.timer = 0;
+	data.player.current_frame = 0;
+	data.player.timer = 0;
+	init_coin_frames(&data);
+	init_player_frames(&data);
 	draw_tails(&data);
 	mlx_hook(data.win, KeyPress, KeyPressMask, handl_input, &data);
 	mlx_hook(data.win, DestroyNotify, StructureNotifyMask, close_game, &data);
-	data.coin.current_frame = 0;
-	data.coin.timer = 0;
-	//printf("%p\n", data.coin.frames[0]);
-	mlx_loop_hook(data.mlx, animate_coins, &data);
+	mlx_loop_hook(data.mlx, animate, &data);
 	mlx_loop(data.mlx);
 }
 

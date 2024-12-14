@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 11:15:05 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 12:16:42 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@ void	init_window(t_data *data)
 	}
 }
 
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
+
 unsigned int	get_color_from_img(t_img *img, int x, int y)
 {
 	char	*dst;
@@ -51,35 +59,15 @@ unsigned int	get_color_from_img(t_img *img, int x, int y)
 
 void	draw_player(t_data *data)
 {
-	static int original[64][64];
-	static int init;
+	t_img	*comp;
 	t_img	img;
-	t_img	*p;
-	char	*dst;
+	t_img	p;
 	int		y;
 	int		x;
-	
-	p = &data->images.player;
-	p->addr = mlx_get_data_addr(p->img, &p->bits_per_pixel, &p->line_length, &p->endian);
 
-	if (!init)
-	{
-		init = 1;
-		y = 0;
-		while (y < 64)
-		{
-			x = 0;
-			while (x < 64)
-			{
-				dst = p->addr + (y * p->line_length + x * (p->bits_per_pixel / 8));
-				if (get_t(*(unsigned int *)dst) == 255)
-					original[y][x] = 1;
-				x++;
-			}
-			y++;
-		}		
-	}
-	
+	comp = &data->images.comp;
+	p.img = data->player.frames[data->player.current_frame];
+	p.addr = mlx_get_data_addr(p.img, &p.bits_per_pixel, &p.line_length, &p.endian);
 	if (data->map.map[data->p_y][data->p_x] == 'E')
 		img.img = data->images.exit.img;
 	else
@@ -91,14 +79,15 @@ void	draw_player(t_data *data)
 		x = 0;
 		while (x < 64)
 		{
-			dst = p->addr + (y * p->line_length + x * (p->bits_per_pixel / 8));
-			if (original[y][x])
-				*(unsigned int *)dst = get_color_from_img(&img, x, y);
+			if (get_t(get_color_from_img(&p, x, y)) == 255)
+				my_mlx_pixel_put(comp, x, y, get_color_from_img(&img, x, y));
+			else
+				my_mlx_pixel_put(comp, x, y, get_color_from_img(&p, x, y));
 			x++;
 		}
 		y++;	
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->images.player.img, data->p_x * 64, data->p_y * 64);
+	mlx_put_image_to_window(data->mlx, data->win, comp->img, data->p_x * 64, data->p_y * 64);
 }
 
 void	draw_tail(char taile, t_data *data, int x, int y)
@@ -160,12 +149,15 @@ void	*create_img(t_data *data, char *path)
 
 void	init_imgs(t_data *data)
 {
+	t_img *img;
 	
 	data->images.coin.img = create_img(data, "textures_xpm/coin.xpm");
 	data->images.wall.img = create_img(data, "textures_xpm/wall.xpm");
 	data->images.player.img = create_img(data, "textures_xpm/player_transparent.xpm");
 	data->images.grass.img = create_img(data, "textures_xpm/grass.xpm");
 	data->images.exit.img = create_img(data, "textures_xpm/exit.xpm");
-	//data->images.player_exit.img = create_img(data, "textures_xpm/player_on_exit.xpm");
 	data->images.enemy.img = create_img(data, "textures_xpm/enemy.xpm");
+	data->images.comp.img = mlx_new_image(data->mlx, 64, 64);
+	img = &data->images.comp;
+	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
 }

@@ -1,6 +1,6 @@
 #include "../incs/so_long_bonus.h"
 
-void init_frams(t_data *data)
+void init_coin_frames(t_data *data)
 {
 	data->coin.frames[0] = create_img(data, "coin_animation_xpm/coin1.xpm");
 	data->coin.frames[1] = create_img(data, "coin_animation_xpm/coin2.xpm");
@@ -32,7 +32,6 @@ void put_all_coins(t_data *data)
 
 int animate_coins(t_data *data)
 {
-	//printf("animate called\n");
 	data->coin.timer++;
 	if (data->coin.timer >= 5500)
 	{
