@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 09:18:03 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 10:44:01 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,24 @@ enum e_keys
 	S_KEY = 115,
 	D_KEY = 100
 };
+typedef struct s_img
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_img;
 
 typedef struct s_imgs
 {
-	void	*player;
-	void	*coin;
-	void	*wall;
-	void	*grass;
-	void	*exit;
-	void	*player_exit;
-	void	*enemy;
+	t_img	player;
+	t_img	coin;
+	t_img	wall;
+	t_img	grass;
+	t_img	exit;
+	t_img	player_exit;
+	t_img	enemy;
 }	t_imgs;
 
 typedef struct s_map
@@ -77,6 +85,8 @@ typedef struct s_data
 
 int animate_coins(t_data *data);
 void init_frams(t_data *data);
+
+void	draw_player(t_data *data);
 
 void	free_map(t_map map);
 t_map	load_map(char *filename);

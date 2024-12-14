@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 09:46:43 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 11:15:11 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,14 @@ void	move(t_data *data, int x_dir, int y_dir)
 		data->coin_collected++;
 		data->map.map[data->p_y][data->p_x] = '0';
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
-		data->p_x * 64, data->p_y * 64);
+	//mlx_put_image_to_window(data->mlx, data->win, data->images.player.img,
+		//data->p_x * 64, data->p_y * 64);
+	draw_player(data);
 	if (data->map.map[data->p_y - y_dir][data->p_x - x_dir] == 'E')
-		mlx_put_image_to_window(data->mlx, data->win, data->images.exit,
+		mlx_put_image_to_window(data->mlx, data->win, data->images.exit.img,
 		(data->p_x - x_dir) * 64, (data->p_y - y_dir) * 64);
 	else
-		mlx_put_image_to_window(data->mlx, data->win, data->images.grass,
+		mlx_put_image_to_window(data->mlx, data->win, data->images.grass.img,
 			(data->p_x - x_dir) * 64, (data->p_y - y_dir) * 64);
 }
 
@@ -54,11 +55,11 @@ int	handl_input(int key, t_data *data)
 	else if (key == DOWN_KEY || key == S_KEY)
 		move(data, DOWN);
 	check_win(data);
-	if (data->p_x == data->map.exit_x && data->p_y == data->map.exit_y)
-		mlx_put_image_to_window(data->mlx, data->win, data->images.player_exit,
-			data->map.exit_x * 64, data->map.exit_y * 64);
+	// if (data->p_x == data->map.exit_x && data->p_y == data->map.exit_y)
+	// 	mlx_put_image_to_window(data->mlx, data->win, data->images.player_exit.img,
+	// 		data->map.exit_x * 64, data->map.exit_y * 64);
 	count = ft_itoa(data->moves_count);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.wall, 0, 0);
+	mlx_put_image_to_window(data->mlx, data->win, data->images.wall.img, 0, 0);
 	mlx_string_put(data->mlx, data->win, 32, 32, 0xffffff, count);
 	free(count);
 	return (0);
