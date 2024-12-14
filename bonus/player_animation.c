@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 16:03:17 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 17:42:32 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@ void	init_player_frames(t_data *data)
 	data->player.frames[2] = create_img(data,
 			"player_animation_xpm/player_up.xpm");
 	data->player.frames[3] = create_img(data,
-			"player_animation_xpm/player_right.xpm");
+			"player_animation_xpm/player_right_1.xpm");
 	data->player.frames[4] = create_img(data,
-			"player_animation_xpm/player_left.xpm");
+			"player_animation_xpm/player_right_2.xpm");
+	data->player.frames[5] = create_img(data,
+			"player_animation_xpm/player_left_1.xpm");
+	data->player.frames[6] = create_img(data,
+			"player_animation_xpm/player_left_2.xpm");
 }
 
 int	animate_player(t_data *data)

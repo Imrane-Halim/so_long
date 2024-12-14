@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 16:50:34 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 17:43:01 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct s_coin
 
 typedef struct s_player
 {
-	void	*frames[5];
+	void	*frames[7];
 	int		current_frame;
 	int		timer;
 } t_player;

@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 16:52:40 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 17:43:27 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int		get_movement_frame(int x_dir, int y_dir)
 {
+	static int	next;
+	if (x_dir != 0)
+		next = (next + 1) % 2;
 	if (x_dir == 1)
-		return (3);
+		return (3 + next);
 	else if (x_dir == -1)
-		return (4);
+		return (5 + next);
 	else if (y_dir == -1)
 		return (2);
 	return (0);
