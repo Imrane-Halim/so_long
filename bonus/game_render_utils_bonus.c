@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/13 09:55:01 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 09:34:06 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,16 +85,18 @@ void	*create_img(t_data *data, char *path)
 {
 	int	x;
 	int	y;
-
+	
 	return (mlx_xpm_file_to_image(data->mlx, path, &x, &y));
 }
 
 void	init_imgs(t_data *data)
 {
+	
 	data->images.coin = create_img(data, "textures_xpm/coin.xpm");
 	data->images.wall = create_img(data, "textures_xpm/wall.xpm");
 	data->images.player = create_img(data, "textures_xpm/player.xpm");
 	data->images.grass = create_img(data, "textures_xpm/grass.xpm");
 	data->images.exit = create_img(data, "textures_xpm/exit.xpm");
+	data->images.player_exit = create_img(data, "textures_xpm/player_on_exit.xpm");
 	data->images.enemy = create_img(data, "textures_xpm/enemy.xpm");
 }

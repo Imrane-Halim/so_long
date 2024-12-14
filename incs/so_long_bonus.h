@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/13 15:54:27 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 09:18:03 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_imgs
 	void	*wall;
 	void	*grass;
 	void	*exit;
+	void	*player_exit;
 	void	*enemy;
 }	t_imgs;
 

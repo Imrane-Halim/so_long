@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/13 17:52:04 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 09:31:37 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	check_win(t_data *data)
 void	run_game(t_data data)
 {
 	init_window(&data);
+	printf("dfdlfjlsdjflsdf\n");
 	init_imgs(&data);
 	init_frams(&data);
 	draw_tails(&data);
@@ -40,6 +41,7 @@ void	run_game(t_data data)
 	mlx_hook(data.win, DestroyNotify, StructureNotifyMask, close_game, &data);
 	data.coin.current_frame = 0;
 	data.coin.timer = 0;
+	//printf("%p\n", data.coin.frames[0]);
 	mlx_loop_hook(data.mlx, animate_coins, &data);
 	mlx_loop(data.mlx);
 }

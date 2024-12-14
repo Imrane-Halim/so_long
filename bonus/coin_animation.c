@@ -32,6 +32,7 @@ void put_all_coins(t_data *data)
 
 int animate_coins(t_data *data)
 {
+	//printf("animate called\n");
 	data->coin.timer++;
 	if (data->coin.timer >= 5500)
 	{

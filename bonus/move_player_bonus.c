@@ -6,34 +6,23 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/13 10:08:44 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 09:46:43 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/so_long_bonus.h"
 
-void	move_right(t_data *data)
-{
-	if (data->map.map[data->p_y][data->p_x + 1] == '1')
-		return ;
-	data->p_x++;
-	data->moves_count++;
-	if (data->map.map[data->p_y][data->p_x] == 'C')
-	{
-		data->coin_collected++;
-		data->map.map[data->p_y][data->p_x] = '0';
-	}
-	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
-		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.grass,
-		(data->p_x - 1) * 64, data->p_y * 64);
-}
+#define DOWN 0, 1
+#define UP 0, -1
+#define RIGHT 1, 0
+#define LEFT -1, 0
 
-void	move_left(t_data *data)
+void	move(t_data *data, int x_dir, int y_dir)
 {
-	if (data->map.map[data->p_y][data->p_x - 1] == '1')
+	if (data->map.map[data->p_y + y_dir][data->p_x + x_dir] == '1')
 		return ;
-	data->p_x--;
+	data->p_x += x_dir;
+	data->p_y += y_dir;
 	data->moves_count++;
 	if (data->map.map[data->p_y][data->p_x] == 'C')
 	{
@@ -42,42 +31,12 @@ void	move_left(t_data *data)
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
 		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.grass,
-		(data->p_x + 1) * 64, data->p_y * 64);
-}
-
-void	move_up(t_data *data)
-{
-	if (data->map.map[data->p_y - 1][data->p_x] == '1')
-		return ;
-	data->p_y--;
-	data->moves_count++;
-	if (data->map.map[data->p_y][data->p_x] == 'C')
-	{
-		data->coin_collected++;
-		data->map.map[data->p_y][data->p_x] = '0';
-	}
-	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
-		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.grass,
-		data->p_x * 64, (data->p_y + 1) * 64);
-}
-
-void	move_down(t_data *data)
-{
-	if (data->map.map[data->p_y + 1][data->p_x] == '1')
-		return ;
-	data->p_y++;
-	data->moves_count++;
-	if (data->map.map[data->p_y][data->p_x] == 'C')
-	{
-		data->coin_collected++;
-		data->map.map[data->p_y][data->p_x] = '0';
-	}
-	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
-		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.grass,
-		data->p_x * 64, (data->p_y - 1) * 64);
+	if (data->map.map[data->p_y - y_dir][data->p_x - x_dir] == 'E')
+		mlx_put_image_to_window(data->mlx, data->win, data->images.exit,
+		(data->p_x - x_dir) * 64, (data->p_y - y_dir) * 64);
+	else
+		mlx_put_image_to_window(data->mlx, data->win, data->images.grass,
+			(data->p_x - x_dir) * 64, (data->p_y - y_dir) * 64);
 }
 
 int	handl_input(int key, t_data *data)
@@ -87,16 +46,16 @@ int	handl_input(int key, t_data *data)
 	if (key == ESC_KEY)
 		close_game(data);
 	else if (key == RIGHT_KEY || key == D_KEY)
-		move_right(data);
+		move(data, RIGHT);
 	else if (key == LEFT_KEY || key == A_KEY)
-		move_left(data);
+		move(data, LEFT);
 	else if (key == UP_KEY || key == W_KEY)
-		move_up(data);
+		move(data, UP);
 	else if (key == DOWN_KEY || key == S_KEY)
-		move_down(data);
+		move(data, DOWN);
 	check_win(data);
-	if (data->p_x != data->map.exit_x || data->p_y != data->map.exit_y)
-		mlx_put_image_to_window(data->mlx, data->win, data->images.exit,
+	if (data->p_x == data->map.exit_x && data->p_y == data->map.exit_y)
+		mlx_put_image_to_window(data->mlx, data->win, data->images.player_exit,
 			data->map.exit_x * 64, data->map.exit_y * 64);
 	count = ft_itoa(data->moves_count);
 	mlx_put_image_to_window(data->mlx, data->win, data->images.wall, 0, 0);
