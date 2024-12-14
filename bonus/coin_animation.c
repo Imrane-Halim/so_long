@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   coin_animation.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
+/*   Updated: 2024/12/14 15:18:22 by ihalim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incs/so_long_bonus.h"
 
-void init_coin_frames(t_data *data)
+void	init_coin_frames(t_data *data)
 {
 	data->coin.frames[0] = create_img(data, "coin_animation_xpm/coin1.xpm");
 	data->coin.frames[1] = create_img(data, "coin_animation_xpm/coin2.xpm");
@@ -10,10 +22,10 @@ void init_coin_frames(t_data *data)
 	data->coin.frames[5] = create_img(data, "coin_animation_xpm/coin6.xpm");
 }
 
-void put_all_coins(t_data *data)
+void	put_all_coins(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < data->map.rows)
@@ -23,14 +35,15 @@ void put_all_coins(t_data *data)
 		{
 			if (data->map.map[y][x] == 'C')
 				mlx_put_image_to_window(data->mlx, data->win,
-					data->coin.frames[data->coin.current_frame], x * 64, y * 64);
+					data->coin.frames[data->coin.current_frame],
+					x * 64, y * 64);
 			x++;
 		}
 		y++;
 	}
 }
 
-int animate_coins(t_data *data)
+int	animate_coins(t_data *data)
 {
 	data->coin.timer++;
 	if (data->coin.timer >= 5500)
@@ -39,5 +52,5 @@ int animate_coins(t_data *data)
 		data->coin.current_frame = (data->coin.current_frame + 1) % 6;
 		data->coin.timer = 0;
 	}
-	return 0;
+	return (0);
 }

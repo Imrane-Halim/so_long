@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 12:03:04 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/14 16:50:34 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ typedef struct s_imgs
 	t_img	coin;
 	t_img	wall;
 	t_img	grass;
-	t_img	exit;
-	t_img	player_exit;
+	t_img	exit_closed;
+	t_img	exit_open;
 	t_img	enemy;
 	t_img	comp;
 }	t_imgs;
@@ -72,7 +72,7 @@ typedef struct s_coin
 
 typedef struct s_player
 {
-	void	*frames[2];
+	void	*frames[5];
 	int		current_frame;
 	int		timer;
 } t_player;
