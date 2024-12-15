@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 15:15:03 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 15:18:06 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	put_all_enemys(t_data *data)
 int	animate_enemys(t_data *data)
 {
 	data->enemy.timer++;
-	if (data->enemy.timer >= 10000)
+	if (data->enemy.timer >= 15000)
 	{
 		put_all_enemys(data);
 		data->enemy.current_frame = (data->enemy.current_frame + 1) % 2;
