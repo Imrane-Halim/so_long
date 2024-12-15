@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/13 09:53:53 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 11:54:48 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ void	free_map(t_map map)
 	while (map.map[y])
 		free(map.map[y++]);
 	free(map.map);
+	get_next_line(-2);
 }

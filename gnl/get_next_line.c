@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:22:49 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/12 11:02:12 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 11:50:47 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (free(leftovers), NULL);
 	leftovers = find_leftovers(fd, leftovers);
 	if (leftovers == NULL)
 		return (NULL);
