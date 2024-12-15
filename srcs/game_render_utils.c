@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 10:39:25 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 13:34:11 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,18 @@ void	draw_tails(t_data *data)
 
 void	*create_img(t_data *data, char *path)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	void	*img;
 
-	return (mlx_xpm_file_to_image(data->mlx, path, &x, &y));
+	img = mlx_xpm_file_to_image(data->mlx, path, &x, &y);
+	if (!img)
+	{
+		img = mlx_new_image(data->mlx, 64, 64);
+		ft_putendl_fd("\n\n-->Error: Some assets are missing!", 2);
+		return (img);
+	}
+	return (img);
 }
 
 void	init_imgs(t_data *data)

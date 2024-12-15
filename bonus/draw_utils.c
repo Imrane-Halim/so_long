@@ -82,8 +82,16 @@ void	draw_tails(t_data *data)
 
 void	*create_img(t_data *data, char *path)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	void	*img;
 
-	return (mlx_xpm_file_to_image(data->mlx, path, &x, &y));
+	img = mlx_xpm_file_to_image(data->mlx, path, &x, &y);
+	if (!img)
+	{
+		img = mlx_new_image(data->mlx, 64, 64);
+		ft_putendl_fd("\n\n-->Error: Some assets are missing!", 2);
+		return (img);
+	}
+	return (img);
 }
