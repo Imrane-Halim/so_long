@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 13:26:42 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 15:02:36 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	free_imgs(t_data *data)
 	mlx_destroy_image(data->mlx, data->player.frames[4]);
 	mlx_destroy_image(data->mlx, data->player.frames[5]);
 	mlx_destroy_image(data->mlx, data->player.frames[6]);
+	mlx_destroy_image(data->mlx, data->enemy.frames[0]);
+	mlx_destroy_image(data->mlx, data->enemy.frames[1]);
 }
 
 int	close_game(t_data *data)

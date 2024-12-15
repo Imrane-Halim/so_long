@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 11:07:27 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 14:57:39 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,13 @@ typedef struct s_player
 	int		timer;
 }	t_player;
 
+typedef struct s_enemy
+{
+	void	*frames[2];
+	int		current_frame;
+	int		timer;
+}	t_enemy;
+
 typedef struct s_data
 {
 	void		*mlx;
@@ -90,12 +97,16 @@ typedef struct s_data
 	int			coin_collected;
 	t_coin		coin;
 	t_player	player;
+	t_enemy		enemy;
 }	t_data;
 
 void			init_coin_frames(t_data *data);
 void			init_player_frames(t_data *data);
+void			init_enemy_frames(t_data *data);
+
 int				animate_coins(t_data *data);
 int				animate_player(t_data *data);
+int				animate_enemys(t_data *data);
 
 void			draw_player(t_data *data);
 

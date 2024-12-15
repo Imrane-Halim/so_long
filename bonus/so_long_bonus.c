@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 10:42:20 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 15:00:02 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	animate(t_data *data)
 	animate_coins(data);
 	animate_player(data);
 	update_door(data);
+	animate_enemys(data);
 	return (0);
 }
 
@@ -55,8 +56,11 @@ void	run_game(t_data data)
 	data.coin.timer = 0;
 	data.player.current_frame = 0;
 	data.player.timer = 0;
+	data.enemy.current_frame = 0;
+	data.enemy.timer = 0;
 	init_coin_frames(&data);
 	init_player_frames(&data);
+	init_enemy_frames(&data);
 	draw_tails(&data);
 	mlx_hook(data.win, KeyPress, KeyPressMask, handl_input, &data);
 	mlx_hook(data.win, DestroyNotify, StructureNotifyMask, close_game, &data);
