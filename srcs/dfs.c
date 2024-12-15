@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/12 18:06:37 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 10:34:49 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,29 @@ static void	dfs(t_map map, int y, int x, char **visited)
 	dfs(map, y, x - 1, visited);
 }
 
-static char	**tmp_map(t_map map)
+static char **tmp_map(t_map map)
 {
 	char	**tmp;
 	int		i;
 
 	i = 0;
-	tmp = malloc(sizeof(char *) * map.rows);
+	tmp = malloc(sizeof(char *) * (map.rows + 1));
 	while (i < map.rows)
 	{
-		tmp[i] = malloc(sizeof(char) * map.colums);
+		tmp[i] = malloc(sizeof(char) * (map.colums + 1));
 		ft_strcpy(tmp[i], map.map[i]);
 		i++;
 	}
+	tmp[i] = NULL;
 	return (tmp);
 }
 
-static void	free_tmp(char **tmp, int y)
+static void free_tmp(char **tmp)
 {
-	int	i;
-
+	int i;
+	
 	i = 0;
-	while (i < y)
+	while (tmp[i])
 		free(tmp[i++]);
 	free(tmp);
 }
@@ -77,16 +78,15 @@ void	is_map_beatable(t_map map)
 	int		y;
 
 	y = 0;
-	while (y < map.rows)
-	{
-		x = -1;
-		while (++x < map.colums)
-		{
+	while (y < map.rows) {
+		x = 0;
+		while (x < map.colums) {
 			if (map.map[y][x] == 'P')
-				break ;
+				break;
+			x++;
 		}
 		if (map.map[y][x] == 'P')
-			break ;
+			break;
 		y++;
 	}
 	visited = tmp_map(map);
@@ -96,5 +96,5 @@ void	is_map_beatable(t_map map)
 		free_map(map);
 		error("Error: Invalid map, exit unreachable or coins uncollectible.\n");
 	}
-	free_tmp(visited, map.rows);
+	free_tmp(visited);
 }

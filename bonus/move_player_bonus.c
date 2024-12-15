@@ -6,15 +6,16 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 17:43:27 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 09:44:30 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/so_long_bonus.h"
 
-int		get_movement_frame(int x_dir, int y_dir)
+int	get_movement_frame(int x_dir, int y_dir)
 {
 	static int	next;
+	
 	if (x_dir != 0)
 		next = (next + 1) % 2;
 	if (x_dir == 1)
