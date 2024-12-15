@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/12 10:54:43 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 11:33:45 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char	*load_map_from_file(int fd)
 		free(tmp);
 		tmp = get_next_line(fd);
 	}
-	if (tmp && tmp[0] == '\n')
+	if (tmp || tmp[0] == '\n')
 		free(tmp);
 	return (line);
 }

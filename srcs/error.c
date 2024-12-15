@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 10:20:05 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 11:36:51 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,22 @@ void	error(char *msg)
 	exit(EXIT_FAILURE);
 }
 
+void	free_imgs(t_data *data)
+{
+	free(data->images.coin);
+	free(data->images.exit);
+	free(data->images.grass);
+	free(data->images.player);
+	free(data->images.wall);
+}
+
 int	close_game(t_data *data)
 {
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	free_map(data->map);
-	exit(0);
+	free_imgs(data);
+	exit(EXIT_SUCCESS);
 	return (0);
 }
