@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 12:04:50 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 13:19:46 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@ void	error(char *msg)
 
 void	free_imgs(t_data *data)
 {
-	// mlx_destroy_image(data->mlx, data->images.coin.img);
-	// mlx_destroy_image(data->mlx, data->images.player.img);
-	// mlx_destroy_image(data->mlx, data->images.comp.img);
-	// mlx_destroy_image(data->mlx, data->images.enemy.img);
-	// mlx_destroy_image(data->mlx, data->images.exit_closed.img);
-	// mlx_destroy_image(data->mlx, data->images.exit_open.img);
-	// mlx_destroy_image(data->mlx, data->images.grass.img);
-	// mlx_destroy_image(data->mlx, data->images.wall.img);
+	mlx_destroy_image(data->mlx, data->images.coin.img);
+	mlx_destroy_image(data->mlx, data->images.comp.img);
+	mlx_destroy_image(data->mlx, data->images.enemy.img);
+	mlx_destroy_image(data->mlx, data->images.exit_closed.img);
+	mlx_destroy_image(data->mlx, data->images.exit_open.img);
+	mlx_destroy_image(data->mlx, data->images.grass.img);
+	mlx_destroy_image(data->mlx, data->images.wall.img);
 
 	mlx_destroy_image(data->mlx, data->coin.frames[0]);
 	mlx_destroy_image(data->mlx, data->coin.frames[1]);
