@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 15:16:27 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 14:25:49 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,4 +116,9 @@ void	is_valid_map(t_map map)
 	check_walls(map);
 	check_flags(map);
 	is_map_beatable(map);
+	if (map.rows > 32 || map.colums > 60)
+	{
+		free_map(map);
+		error("Error: Invalid map, too big for screen\n");
+	}
 }
