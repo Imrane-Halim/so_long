@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 10:36:05 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 10:41:46 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	dfs(t_map map, int y, int x, char **visited)
 	dfs(map, y, x - 1, visited);
 }
 
-static char **tmp_map(t_map map)
+static char	**tmp_map(t_map map)
 {
 	char	**tmp;
 	int		i;
@@ -41,10 +41,10 @@ static char **tmp_map(t_map map)
 	return (tmp);
 }
 
-static void free_tmp(char **tmp)
+static void	free_tmp(char **tmp)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (tmp[i])
 		free(tmp[i++]);

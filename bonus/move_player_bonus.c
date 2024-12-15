@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 09:44:30 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 10:40:55 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	get_movement_frame(int x_dir, int y_dir)
 {
 	static int	next;
-	
+
 	if (x_dir != 0)
 		next = (next + 1) % 2;
 	if (x_dir == 1)
@@ -42,7 +42,8 @@ void	move(t_data *data, int x_dir, int y_dir)
 	data->player.current_frame = get_movement_frame(x_dir, y_dir);
 	draw_player(data);
 	if (data->map.map[data->p_y - y_dir][data->p_x - x_dir] == 'E')
-		mlx_put_image_to_window(data->mlx, data->win, data->images.exit_closed.img,
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->images.exit_closed.img,
 			(data->p_x - x_dir) * 64, (data->p_y - y_dir) * 64);
 	else
 		mlx_put_image_to_window(data->mlx, data->win, data->images.grass.img,

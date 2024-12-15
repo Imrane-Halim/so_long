@@ -5,7 +5,8 @@ SRC = 	gnl/get_next_line.c gnl/get_next_line_utils.c \
 BONUS = gnl/get_next_line.c gnl/get_next_line_utils.c \
 		bonus/dfs_bonus.c    bonus/game_render_utils_bonus.c  bonus/move_player_bonus.c  \
 		bonus/so_long_bonus.c bonus/coin_animation.c bonus/player_animation.c\
-		bonus/error_bonus.c  bonus/map_check_bonus.c          bonus/parse_map_bonus.c
+		bonus/error_bonus.c  bonus/map_check_bonus.c          bonus/parse_map_bonus.c \
+		bonus/draw_utils.c bonus/draw_utils1.c
 
 OBJ = $(SRC:.c=.o)
 BOBJ = $(BONUS:.c=.o)

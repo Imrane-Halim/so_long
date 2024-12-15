@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 17:43:01 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 11:07:27 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,52 +75,54 @@ typedef struct s_player
 	void	*frames[7];
 	int		current_frame;
 	int		timer;
-} t_player;
+}	t_player;
 
 typedef struct s_data
 {
-	void	*mlx;
-	void	*win;
-	t_imgs	images;
-	t_map	map;
-	int		p_x;
-	int		p_y;
-	int		moves_count;
-	int		coin_count;
-	int		coin_collected;
-	t_coin	coin;
-	t_player player;
+	void		*mlx;
+	void		*win;
+	t_imgs		images;
+	t_map		map;
+	int			p_x;
+	int			p_y;
+	int			moves_count;
+	int			coin_count;
+	int			coin_collected;
+	t_coin		coin;
+	t_player	player;
 }	t_data;
 
+void			init_coin_frames(t_data *data);
+void			init_player_frames(t_data *data);
+int				animate_coins(t_data *data);
+int				animate_player(t_data *data);
 
+void			draw_player(t_data *data);
 
-void init_coin_frames(t_data *data);
-void init_player_frames(t_data *data);
-int animate_coins(t_data *data);
-int    animate_player(t_data *data);
+void			free_map(t_map map);
+t_map			load_map(char *filename);
+void			is_valid_map(t_map map);
+void			is_map_beatable(t_map map);
+void			error(char *msg);
 
+int				close_game(t_data *data);
+void			init_window(t_data *data);
+void			draw_tail(char taile, t_data *data, int x, int y);
+void			draw_tails(t_data *data);
+void			*create_img(t_data *data, char *path);
+void			init_imgs(t_data *data);
 
+void			move_right(t_data *data);
+void			move_left(t_data *data);
+void			move_up(t_data *data);
+void			move_down(t_data *data);
+int				handl_input(int key, t_data *data);
+void			check_win(t_data *data);
 
-void	draw_player(t_data *data);
-
-void	free_map(t_map map);
-t_map	load_map(char *filename);
-void	is_valid_map(t_map map);
-void	is_map_beatable(t_map map);
-void	error(char *msg);
-
-int		close_game(t_data *data);
-void	init_window(t_data *data);
-void	draw_tail(char taile, t_data *data, int x, int y);
-void	draw_tails(t_data *data);
-void	*create_img(t_data *data, char *path);
-void	init_imgs(t_data *data);
-
-void	move_right(t_data *data);
-void	move_left(t_data *data);
-void	move_up(t_data *data);
-void	move_down(t_data *data);
-int		handl_input(int key, t_data *data);
-void	check_win(t_data *data);
+int				get_t(int trgb);
+unsigned int	get_color_from_img(t_img *img, int x, int y);
+int				create_trgb(unsigned char t, unsigned char r,
+					unsigned char g, unsigned char b);
+void			my_mlx_pixel_put(t_img *img, int x, int y, int color);
 
 #endif

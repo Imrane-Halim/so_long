@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/14 16:53:53 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 10:42:20 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ void	check_win(t_data *data)
 void	update_door(t_data *data)
 {
 	if (data->coin_collected == data->coin_count)
-		mlx_put_image_to_window(data->mlx, data->win, data->images.exit_open.img,
-			data->map.exit_x * 64, data->map.exit_y * 64);	
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->images.exit_open.img,
+			data->map.exit_x * 64, data->map.exit_y * 64);
 }
 
 int	animate(t_data *data)
