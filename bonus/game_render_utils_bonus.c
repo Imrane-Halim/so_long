@@ -88,13 +88,18 @@ void	init_imgs(t_data *data)
 {
 	t_img	*img;
 
-	data->images.coin.img = create_img(data, "textures_xpm/coin.xpm");
-	data->images.wall.img = create_img(data, "textures_xpm/wall.xpm");
-	data->images.grass.img = create_img(data, "textures_xpm/grass.xpm");
+	data->images.coin.img = create_img(data,
+			"assets_xpm/textures_xpm/coin.xpm");
+	data->images.wall.img = create_img(data,
+			"assets_xpm/textures_xpm/wall.xpm");
+	data->images.grass.img = create_img(data,
+			"assets_xpm/textures_xpm/grass.xpm");
 	data->images.exit_closed.img = create_img(data,
-			"textures_xpm/exit_closed.xpm");
-	data->images.exit_open.img = create_img(data, "textures_xpm/exit_open.xpm");
-	data->images.enemy.img = create_img(data, "textures_xpm/enemy.xpm");
+			"assets_xpm/textures_xpm/exit_closed.xpm");
+	data->images.exit_open.img = create_img(data,
+			"assets_xpm/textures_xpm/exit_open.xpm");
+	data->images.enemy.img = create_img(data,
+			"assets_xpm/textures_xpm/enemy.xpm");
 	data->images.comp.img = mlx_new_image(data->mlx, 64, 64);
 	img = &data->images.comp;
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
