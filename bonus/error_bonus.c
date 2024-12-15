@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 13:19:46 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/15 13:26:42 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ void	free_imgs(t_data *data)
 	mlx_destroy_image(data->mlx, data->images.exit_open.img);
 	mlx_destroy_image(data->mlx, data->images.grass.img);
 	mlx_destroy_image(data->mlx, data->images.wall.img);
-
 	mlx_destroy_image(data->mlx, data->coin.frames[0]);
 	mlx_destroy_image(data->mlx, data->coin.frames[1]);
 	mlx_destroy_image(data->mlx, data->coin.frames[2]);
 	mlx_destroy_image(data->mlx, data->coin.frames[3]);
 	mlx_destroy_image(data->mlx, data->coin.frames[4]);
 	mlx_destroy_image(data->mlx, data->coin.frames[5]);
-	
 	mlx_destroy_image(data->mlx, data->player.frames[0]);
 	mlx_destroy_image(data->mlx, data->player.frames[1]);
 	mlx_destroy_image(data->mlx, data->player.frames[2]);
