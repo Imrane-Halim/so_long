@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 15:18:06 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:12:13 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	init_enemy_frames(t_data *data)
 {
 	data->enemy.frames[0] = create_img(data,
-			"assets_xpm/enemy_animation_xpm/enemy_frame_1.xpm");
+			"textures/enemy_animation_xpm/enemy_frame_1.xpm");
 	data->enemy.frames[1] = create_img(data,
-			"assets_xpm/enemy_animation_xpm/enemy_frame_2.xpm");
+			"textures/enemy_animation_xpm/enemy_frame_2.xpm");
 }
 
 void	put_all_enemys(t_data *data)

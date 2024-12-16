@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 15:16:51 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:11:24 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,13 @@ void	*create_img(t_data *data, char *path)
 void	init_imgs(t_data *data)
 {
 	data->images.coin = create_img(data,
-			"assets_xpm/textures_xpm/coin.xpm");
+			"textures/textures_xpm/coin.xpm");
 	data->images.wall = create_img(data,
-			"assets_xpm/textures_xpm/wall.xpm");
+			"textures/textures_xpm/wall.xpm");
 	data->images.player = create_img(data,
-			"assets_xpm/textures_xpm/player.xpm");
+			"textures/textures_xpm/player.xpm");
 	data->images.grass = create_img(data,
-			"assets_xpm/textures_xpm/grass.xpm");
+			"textures/textures_xpm/grass.xpm");
 	data->images.exit = create_img(data,
-			"assets_xpm/textures_xpm/exit_closed.xpm");
+			"textures/textures_xpm/exit_closed.xpm");
 }

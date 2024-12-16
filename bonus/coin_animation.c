@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 15:16:02 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:11:48 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	init_coin_frames(t_data *data)
 {
 	data->coin.frames[0] = create_img(data,
-			"assets_xpm/coin_animation_xpm/coin1.xpm");
+			"textures/coin_animation_xpm/coin1.xpm");
 	data->coin.frames[1] = create_img(data,
-			"assets_xpm/coin_animation_xpm/coin2.xpm");
+			"textures/coin_animation_xpm/coin2.xpm");
 	data->coin.frames[2] = create_img(data,
-			"assets_xpm/coin_animation_xpm/coin3.xpm");
+			"textures/coin_animation_xpm/coin3.xpm");
 	data->coin.frames[3] = create_img(data,
-			"assets_xpm/coin_animation_xpm/coin4.xpm");
+			"textures/coin_animation_xpm/coin4.xpm");
 	data->coin.frames[4] = create_img(data,
-			"assets_xpm/coin_animation_xpm/coin5.xpm");
+			"textures/coin_animation_xpm/coin5.xpm");
 	data->coin.frames[5] = create_img(data,
-			"assets_xpm/coin_animation_xpm/coin6.xpm");
+			"textures/coin_animation_xpm/coin6.xpm");
 }
 
 void	put_all_coins(t_data *data)
