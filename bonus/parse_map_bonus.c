@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/16 17:27:10 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:52:45 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ static int	open_file(char *filename)
 		error("Error: the map should have .ber extention\n");
 	if (ft_strncmp(ext, ".ber", 4) || *(ext + 4) != '\0')
 		error("Error: the map should have .ber extention\n");
+	if ((ft_strlen(filename) == 4 && ft_strncmp(filename, ".ber", 4) == 0)
+		|| (*(ext - 1) == '/' && ft_strncmp(ext, ".ber", 4) == 0))
+		error("Error: Hidden files are not valid\n");
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		error("Error: could open the map\n");
