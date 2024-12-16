@@ -6,12 +6,12 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:22:49 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 11:50:47 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:19:27 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "../libft/libft.h"
+#include "../libft.h"
 
 char	*find_next_leftovers(char *leftovers)
 {

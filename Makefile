@@ -1,8 +1,8 @@
-SRC = 	gnl/get_next_line.c gnl/get_next_line_utils.c \
+SRC = 	libft/gnl/get_next_line.c libft/gnl/get_next_line_utils.c \
 		srcs/so_long.c 	srcs/error.c srcs/parse_map.c 	srcs/map_check.c \
 		srcs/dfs.c 		srcs/game_render_utils.c 		srcs/move_player.c
 
-BONUS = gnl/get_next_line.c gnl/get_next_line_utils.c \
+BONUS = libft/gnl/get_next_line.c libft/gnl/get_next_line_utils.c \
 		bonus/dfs_bonus.c    bonus/game_render_utils_bonus.c  bonus/move_player_bonus.c  \
 		bonus/so_long_bonus.c bonus/coin_animation.c bonus/player_animation.c\
 		bonus/error_bonus.c  bonus/map_check_bonus.c          bonus/parse_map_bonus.c \

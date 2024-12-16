@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/12 11:07:00 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:19:59 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <mlx.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include "../gnl/get_next_line.h"
+# include "../libft/gnl/get_next_line.h"
 # include "../libft/libft.h"
 # include <X11/keysym.h>
 # include <X11/X.h>
