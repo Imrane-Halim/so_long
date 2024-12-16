@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 15:00:02 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:16:05 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	update_door(t_data *data)
 
 int	animate(t_data *data)
 {
-	animate_coins(data);
+	if (data->coin_collected != data->coin_count)
+		animate_coins(data);
 	animate_player(data);
 	update_door(data);
 	animate_enemys(data);
