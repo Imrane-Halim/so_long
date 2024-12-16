@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/16 17:11:24 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:56:57 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_window(t_data *data)
 	if (!data->mlx)
 	{
 		free_map(data->map);
-		error("Error: couldn't connect to x server\n");
+		error("couldn't connect to x server.");
 	}
 	data->win = mlx_new_window(data->mlx,
 			data->map.colums * 64,
@@ -27,7 +27,7 @@ void	init_window(t_data *data)
 	{
 		free_map(data->map);
 		free(data->mlx);
-		error("Error: couldn't create a new window\n");
+		error("couldn't create a new window");
 	}
 }
 
