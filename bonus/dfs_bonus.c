@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 10:41:46 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:07:52 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	is_map_beatable(t_map map)
 	if (check_char(visited, 'E') || check_char(visited, 'C'))
 	{
 		free_map(map);
-		error("Error: Invalid map, exit unreachable or coins uncollectible.\n");
+		error("Invalid map, exit unreachable or coins uncollectible.");
 	}
 	free_tmp(visited);
 }

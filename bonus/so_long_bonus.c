@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/16 17:16:05 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:10:16 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	if (ac != 2)
-		error("usage: ./so_long <MAP.ber>\n");
+		error("usage: ./so_long <MAP.ber>");
 	data.map = load_map(av[1]);
 	is_valid_map(data.map);
 	run_game(data);

@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/16 17:52:45 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:09:44 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static int	open_file(char *filename)
 
 	ext = ft_strrchr(filename, '.');
 	if (ext == NULL)
-		error("Error: the map should have .ber extention\n");
+		error("the map should have .ber extention.");
 	if (ft_strncmp(ext, ".ber", 4) || *(ext + 4) != '\0')
-		error("Error: the map should have .ber extention\n");
+		error("the map should have .ber extention.");
 	if ((ft_strlen(filename) == 4 && ft_strncmp(filename, ".ber", 4) == 0)
 		|| (*(ext - 1) == '/' && ft_strncmp(ext, ".ber", 4) == 0))
-		error("Error: Hidden files are not valid\n");
+		error("Hidden files are not valid.");
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		error("Error: could open the map\n");
+		error("could open the map.");
 	return (fd);
 }
 
@@ -44,7 +44,7 @@ static char	*load_map_from_file(int fd)
 	{
 		new_line = ft_strjoin(line, tmp);
 		if (!new_line)
-			error("Error: something wrong happened\n");
+			error("something wrong happened.");
 		free(line);
 		line = new_line;
 		if (tmp[0] == '\n')
@@ -52,7 +52,7 @@ static char	*load_map_from_file(int fd)
 			free(tmp);
 			free(new_line);
 			get_next_line(-2);
-			error("Error: Invalid map, Empty lines exist\n");
+			error("Invalid map, Empty lines exist.");
 		}
 		free(tmp);
 		tmp = get_next_line(fd);
@@ -66,7 +66,7 @@ static t_map	create_map_from_string(char *line)
 
 	map.map = ft_split(line, '\n');
 	if (!map.map)
-		error("Error: something wrong happened\n");
+		error("something wrong happened.");
 	map.rows = 0;
 	while (map.map[map.rows])
 		map.rows++;

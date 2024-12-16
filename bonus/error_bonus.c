@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 15:02:36 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:07:08 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	error(char *msg)
 {
-	write(2, msg, ft_strlen(msg));
+	ft_putendl_fd("Error", STDERR_FILENO);
+	ft_putendl_fd(msg, STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 14:25:49 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 18:09:05 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	check_chars(t_map map)
 				&& c != 'P' && c != 'E' && c != 'X')
 			{
 				free_map(map);
-				error("Error: Invalid map, invalid char exists\n");
+				error("Invalid map, invalid char exists.");
 			}
 			x++;
 		}
@@ -48,7 +48,7 @@ static void	check_rectangle(t_map map)
 		if (map.colums != (int)ft_strlen(map.map[i]))
 		{
 			free_map(map);
-			error("Error: Inalid map, not a perfect rectangle\n");
+			error("Inalid map, not a perfect rectangle.");
 		}
 		i++;
 	}
@@ -64,7 +64,7 @@ static void	check_walls(t_map map)
 		if (map.map[0][i] != '1' || map.map[map.rows - 1][i] != '1')
 		{
 			free_map(map);
-			error("Error: Ivalid map, check your walls\n");
+			error("Ivalid map, check your walls.");
 		}
 		i++;
 	}
@@ -74,7 +74,7 @@ static void	check_walls(t_map map)
 		if (map.map[i][0] != '1' || map.map[i][map.colums - 1] != '1')
 		{
 			free_map(map);
-			error("Error: Ivalid map, check your walls\n");
+			error("Ivalid map, check your walls.");
 		}
 		i++;
 	}
@@ -105,7 +105,7 @@ static void	check_flags(t_map map)
 	if ((coin * player * exit) != 1)
 	{
 		free_map(map);
-		error("Error: Invalid map. P=1Max, C=1Min, E=1Max\n");
+		error("Invalid map. P=1Max, C=1Min, E=1Max.");
 	}
 }
 
@@ -119,6 +119,6 @@ void	is_valid_map(t_map map)
 	if (map.rows > 32 || map.colums > 60)
 	{
 		free_map(map);
-		error("Error: Invalid map, too big for screen\n");
+		error("Invalid map, too big for screen.");
 	}
 }
