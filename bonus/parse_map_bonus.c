@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/12/15 11:54:48 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:27:10 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,23 @@ static char	*load_map_from_file(int fd)
 	line = NULL;
 	new_line = NULL;
 	tmp = get_next_line(fd);
-	while (tmp && tmp[0] != '\n')
+	while (tmp)
 	{
 		new_line = ft_strjoin(line, tmp);
 		if (!new_line)
 			error("Error: something wrong happened\n");
 		free(line);
 		line = new_line;
+		if (tmp[0] == '\n')
+		{
+			free(tmp);
+			free(new_line);
+			get_next_line(-2);
+			error("Error: Invalid map, Empty lines exist\n");
+		}
 		free(tmp);
 		tmp = get_next_line(fd);
 	}
-	if (tmp && tmp[0] == '\n')
-		free(tmp);
 	return (line);
 }
 
