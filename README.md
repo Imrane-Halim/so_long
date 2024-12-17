@@ -83,7 +83,7 @@ The game requires a map file in `.ber` format. The map must consist of:
 100001
 1C0C01
 1P0E01
-1X1111
+111111
 ```
 
 ## Acknowledgments
