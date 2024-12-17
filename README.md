@@ -11,6 +11,10 @@ This is a simple 2D game project created as part of a computer graphics course a
 - Smooth window management 🖥️
 - Display of movement count in the shell 📊
 
+## Game Animations
+Here are some animations from the game:
+![Game Animation 1](screenshorts/bonus1.gif)
+
 ## Getting Started
 To run the game, you will need to compile the source code. Make sure you have the MiniLibX library installed.
 
