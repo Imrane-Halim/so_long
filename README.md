@@ -7,7 +7,7 @@ This is a simple 2D game project created as part of a computer graphics course a
 - Basic 2D gameplay mechanics 🌟
 - Player movement using W, A, S, D keys (or arrow keys) ⬆️⬇️⬅️➡️
 - Collectibles to gather 🍣
-- A map with walls, free spaces, and an exit 🚪
+- A map with walls, free spaces, enemies, and an exit 🚪
 - Smooth window management 🖥️
 - Display of movement count in the shell 📊
 
@@ -18,8 +18,33 @@ To run the game, you will need to compile the source code. Make sure you have th
 - C compiler (gcc) 🛠️
 - MiniLibX library
 
-### Installation
-1. Clone the repository:
+### Installing MiniLibX
+You can install MiniLibX by following these steps:
+
+1. Clone the MiniLibX repository:
+   ```bash
+   git clone https://github.com/42Paris/minilibx-linux.git
+   cd minilibx-linux
+   ```
+
+2. Install the required packages (for Debian/Ubuntu):
+   ```bash
+   sudo apt-get install gcc make xorg libxext-dev libbsd-dev
+   ```
+
+3. Compile MiniLibX:
+   ```bash
+   ./configure
+   make
+   ```
+
+4. Optionally, install the library:
+   - You may want to install `libmlx.a` and/or `libmlx_$(HOSTTYPE).a` in `/usr/X11/lib` or `/usr/local/lib`
+   - Install `mlx.h` in `/usr/X11/include` or `/usr/local/include`
+   - Install `man/man3/mlx*.1` in `/usr/X11/man/man3` or `/usr/local/man/man3`
+
+### Installation of the Game
+1. Clone the game repository:
    ```bash
    git clone https://github.com/yourusername/so_long.git
    cd so_long
@@ -29,8 +54,12 @@ To run the game, you will need to compile the source code. Make sure you have th
    ```bash
    make
    ```
+   or
+   ```bash
+   make bonus
+   ```
 
-3. Run the game with a map file:
+4. Run the game with a map file:
    ```bash
    ./so_long path/to/map.ber
    ```
@@ -42,6 +71,7 @@ The game requires a map file in `.ber` format. The map must consist of:
 - `C` for collectibles 🍣
 - `E` for the exit 🚪
 - `P` for the player's starting position 🐬
+- `X` for enemies (bonus part) 👾
 
 ### Example Map
 ```
@@ -49,14 +79,8 @@ The game requires a map file in `.ber` format. The map must consist of:
 100001
 1C0C01
 1P0E01
-111111
+1X1111
 ```
 
 ## Acknowledgments
 A special shoutout to my friend [Ismail Najah](https://github.com/ismailnajah) for his invaluable help with the player sprite animations. Thank you for your support! 🙌
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-For any questions or feedback, feel free to reach out to me via GitHub. 😊
